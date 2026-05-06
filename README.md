@@ -2,6 +2,6 @@ USTH Deep Learning 2026
 =========================
 
 
-* Your name here
-* (your nickname here, e.g. Mr. Orange, Mr. MISA, Mr. Macbook....)
+* Student name: Nguyen Quang Ngoc
+* Student ID: 2540086
 
