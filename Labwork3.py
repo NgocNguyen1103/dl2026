@@ -9,7 +9,6 @@ with open('loan2.csv', 'r') as file:
 for _ in range(len(data)):
     print(data[_])
 
-
 def ln(x):
     n = 1000.0
     return n * ((x ** (1/n)) - 1)
@@ -19,9 +18,8 @@ def exp(x):
     return e**x
 
 def sigmoid(x):
-    if x < 0.5:
-        return 0
-    else: return 1
+    e = 2.718281828459045
+    return 1 / (1 + e ** (-x))
 
 def w0_df(x1, x2, y, w0, w1, w2):
     inner_sigmoid = 0 - (w1*x1 + w2*x2 + w0)
@@ -60,7 +58,7 @@ def grad(learning_rate, w0, w1, w2, total_loss):
         total_loss = loss/len(data)
         print(f'w0: {w0:.3f} | w1: {w1:.3f} | w2: {w2:.3f}')
         print(f'loss: {total_loss}')
-        if total_loss < 0.6:
+        if total_loss < 0.3:
             return w0, w1, w2
             
 
@@ -69,5 +67,10 @@ for _ in range(len(data)):
     x1 = data[_][0]
     x2 = data[_][1]
     y = sigmoid(w1*x1 + w2*x2 + w0)
+    if y < 0.5:
+        y = 0
+    else: y = 1
     print(x1, x2, y)
+
+
 
